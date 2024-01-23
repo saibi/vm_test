@@ -1,0 +1,6 @@
+all:
+  hosts:
+    web01:
+      ansible_host: 172.16.172.91
+      ansible_user: saibi
+      ansible_ssh_private_key_file: clientkey.pem
