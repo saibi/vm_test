@@ -1,0 +1,10 @@
+git clone https://github.com/devopshydclub/emartapp.git
+
+run vagrant vm
+
+in the vm 
+
+docker compose build
+docker compose up -d
+
+
