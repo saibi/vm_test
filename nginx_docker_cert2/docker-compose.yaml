@@ -1,0 +1,14 @@
+services:
+  web:
+    image: nginx
+    volumes:
+    - ./conf/default.conf:/etc/nginx/conf.d/default.conf:ro
+    - ./conf/nginx.conf:/etc/nginx/nginx.conf:ro
+    - ./cert:/etc/nginx/cert
+    - ./html:/etc/nginx/html
+    ports:
+    - "80:80"
+    - "443:443"
+    environment:
+    - NGINX_HOST=www.ymkim-desktop.dev
+    - NGINX_PORT=80

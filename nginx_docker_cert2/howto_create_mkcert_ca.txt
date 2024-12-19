@@ -1,0 +1,38 @@
+on ubuntu based linux distro
+
+certutil 설치
+$ sudo apt install libnss3-tools
+
+mkcert 설치
+$ sudo apt install mkcert
+
+
+local CA 생성
+$ mkcert -install
+The local CA is now installed in the system trust store! ⚡️
+The local CA is now installed in the Firefox and/or Chrome/Chromium trust store (requires browser restart)! 🦊
+
+CA 위치
+$ mkcert -CAROOT
+/home/saibi/.local/share/mkcert
+
+서버 인증서 생성
+$ mkcert "*.ymkim-desktop.dev" localhost 172.16.172.2 127.0.0.1 ::1
+
+Created a new certificate valid for the following names 📜
+ - "*.ymkim-desktop.dev"
+ - "localhost"
+ - "172.16.172.2"
+ - "127.0.0.1"
+ - "::1"
+
+Reminder: X.509 wildcards only go one level deep, so this won't match a.b.ymkim-desktop.dev ℹ️
+
+The certificate is at "./_wildcard.ymkim-desktop.dev+4.pem" and the key at "./_wildcard.ymkim-desktop.dev+4-key.pem" ✅
+
+It will expire on 19 March 2027 🗓
+
+
+서버 인증서와 키를 nginx cert 디렉토리에 카피한 다음에 
+nginx.conf 에서 ssl_certificate 와 ssl_certificate_key 에 path 지정. 
+
